@@ -2,6 +2,8 @@ package com.aws.pattern.infrastructure;
 
 import java.util.Arrays;
 
+import software.amazon.awscdk.core.CfnOutput;
+import software.amazon.awscdk.core.CfnOutputProps;
 import software.amazon.awscdk.core.Construct;
 import software.amazon.awscdk.core.Duration;
 import software.amazon.awscdk.core.Stack;
@@ -178,6 +180,27 @@ public class EcsInfrastructureStack extends Stack {
 				.imageTagMutability(TagMutability.MUTABLE)
 				.imageScanOnPush(false)
 				.build();
+		
+		
+		
+		// *******************************************//
+	    // *******************CDK outputs*************//
+	    // *******************************************//
+		
+		CfnOutputProps ecrRepoOutputProps = CfnOutputProps.builder()
+			.value(ecrRepo.getRepositoryUri())
+			.description("ECR repository URI")
+			.exportName("ECRRepository")
+			.build();
+		CfnOutput ecrRepoOutput = new CfnOutput(this, "ecrRepoOutput", ecrRepoOutputProps);
+		
+		
+		CfnOutputProps ecsTaskExecRoleOutputProps = CfnOutputProps.builder()
+				.value(ecsTaskExecRole.getRoleArn())
+				.description("ECS task execution role ARN")
+				.exportName("ECSTaskRoleExec")
+				.build();
+		CfnOutput ecsTaskExecRoleOutput = new CfnOutput(this, "ecsTaskRoleExecOutput", ecsTaskExecRoleOutputProps);
 
 	}
 
