@@ -95,8 +95,7 @@ public class CicdBlueGreenStack extends Stack {
 									{
 										put("commands",
 												Arrays.asList("apt update",
-														"yes Y | apt install amazon-ecr-credential-helper",
-														"docker login -u amineoualialami -p Oulalaw00."));
+														"yes Y | apt install amazon-ecr-credential-helper"));
 									}
 								});
 								put("build", new HashMap<String, Object>() {
@@ -181,8 +180,6 @@ public class CicdBlueGreenStack extends Stack {
 		mapProperties.put("EcsClusterName", EcsInfrastructureStack.ECS_CLUSTER_NAME);
 		mapProperties.put("EcsServiceName", EcsInfrastructureStack.ECS_SERVICE_NAME);
 		mapProperties.put("TerminationWaitTime", ECS_TASKSET_TERMINATION_WAIT_TIME);
-		//mapProperties.put("BlueGroupAlarm", null);
-		//mapProperties.put("GreenGroupAlarm", null);
 		CustomResourceProps customResourceProp = new CustomResourceProps.Builder()
 				.serviceToken(deploymentGroupLambda.getFunctionArn())
 				.properties(mapProperties)
