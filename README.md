@@ -1,11 +1,13 @@
-## My Project
+## amazon-ecs-cicd-cdk
+This project provides sample code on how to deploy a containerized Java microservice with a Blue/Green Deployment Strategy using AWS CodePipeline and to create the underlying Amazon ECS infrastructure using AWS Cloud Development Kit (CDK) in Java.
 
-TODO: Fill this README out!
 
-Be sure to:
+This project contains the following CDK stacks:
+- MyEcsClusterInfrastructureCdkStack: Creates the ECS Cluster and underlying infrastructure such as VPC, subnets, security groups, and application load balancer.
+- MyCICDBlueGreenStack: Creates the pipeline resources such as AWS CodeBuild and AWS CodeDeploy.
 
-* Change the title in this README
-* Edit your repository description on GitHub
+To know more about creating a Blue/Green pipeline for Java microservices on Amazon ECS using AWS CDK and AWS CodePipeline please visit the following link:
+
 
 ## Security
 
