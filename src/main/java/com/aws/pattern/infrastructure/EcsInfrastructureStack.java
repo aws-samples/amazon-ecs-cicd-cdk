@@ -43,8 +43,8 @@ import software.amazon.awscdk.services.logs.LogGroup;
 
 public class EcsInfrastructureStack extends Stack {
 	
-	public static String ECS_CLUSTER_NAME = "MyCluster";
-	public static String ECS_SERVICE_NAME = "MyService";
+	public static String ECS_CLUSTER_NAME = "BlueGreenPipelineJavaAppCluster";
+	public static String ECS_SERVICE_NAME = "BlueGreenPipelineJavaAppService";
 	
 	public ApplicationListener greenWebListener;
 	public ApplicationListener blueWebListener;
