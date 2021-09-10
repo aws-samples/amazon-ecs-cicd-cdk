@@ -72,7 +72,7 @@ public class EcsInfrastructureStack extends Stack {
 
 		ISecurityGroup serviceSecurityGroup = SecurityGroup.Builder.create(this, "serviceSecurityGroupId")
 				.securityGroupName("serviceSecurityGroup").allowAllOutbound(true).vpc(vpc).build();
-		serviceSecurityGroup.addIngressRule(Peer.anyIpv4(), Port.tcp(8080));
+		serviceSecurityGroup.addIngressRule(albSecurityGroup, Port.tcp(8080));
 
 		// *******************************************//
 		// ******ALB, Listeners, Target groups********//
